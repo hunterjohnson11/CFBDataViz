@@ -1,0 +1,133 @@
+library(cfbfastR)
+library(gt)
+library(gtExtras)
+library(data.table)
+library(tidyverse)
+library(magrittr)
+
+
+
+gt_theme_f5 <- function(gt_object, ...) {
+  
+  gt_object %>%
+    opt_table_font(
+      font = list(
+        google_font("Roboto"),
+        default_fonts()
+      ),
+      weight = 400
+    ) %>%
+    tab_style(
+      locations = cells_title("title"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        weight = 700
+      )
+    ) %>%
+    tab_style(
+      locations = cells_title("subtitle"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        color = "gray65",
+        weight = 400
+      )
+    ) %>%
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = "top", color = "black", weight = px(0)
+        ),
+        cell_text(
+          font = google_font("Roboto"),
+          #transform = "uppercase",
+          v_align = "bottom",
+          size = px(14),
+          weight = 'bold'
+        )
+      ),
+      locations = list(
+        gt::cells_column_labels(),
+        gt::cells_stubhead()
+      )
+    ) %>%
+    tab_options(
+      column_labels.background.color = "floralwhite",
+      data_row.padding = px(7.5),
+      heading.border.bottom.style = "none",
+      table.border.top.style = "none", # transparent
+      table.border.bottom.style = "none",
+      column_labels.font.weight = "bold", 
+      column_labels.border.top.style = "none",
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.bottom.color = "black",
+      row_group.border.top.style = "none",
+      row_group.border.top.color = "black",
+      row_group.border.bottom.width = px(1),
+      row_group.border.bottom.color = "floralwhite",
+      stub.border.color = "floralwhite",
+      stub.border.width = px(0),
+      source_notes.font.size = 12,
+      source_notes.border.lr.style = "none",
+      table.font.size = 16,
+      heading.align = "left",
+      table.background.color = "floralwhite",
+      table_body.hlines.color = 'gray90',
+      ...
+    )
+}
+
+stats <- cfbfastR::cfbd_stats_season_player(2024,
+                                   season_type = "both",
+                                   conference = "MWC") 
+
+
+rush <- stats |>
+  filter(rushing_yds > 500) |>
+  mutate(passing_completions = ifelse(is.na(passing_completions), 0, passing_completions)) |>
+  filter(passing_completions < 5) |>
+  select(team, athlete_id, player, rushing_car, rushing_yds, rushing_td, rushing_long, rushing_ypc, fumbles_lost, fumbles_fum, receiving_rec, receiving_yds, receiving_td, receiving_long)
+  
+
+usage <- cfbd_player_usage(2024,
+                            conference = "MWC")
+
+rb_usage <- usage |>
+  filter(position == "RB") |>
+  select(athlete_id, usg_overall, usg_rush, usg_pass)
+
+
+info <- cfbd_team_info()
+
+
+rush %<>%
+  left_join(info %>% select(school, logo), by = c("team" = "school"))
+
+
+
+rush %>%
+  select(logo, player, rushing_car, rushing_yds, rushing_ypc, rushing_td, receiving_rec, receiving_yds, receiving_td) %>%
+  arrange(-rushing_yds) %>%
+  gt() %>%
+  gt_theme_f5() %>%
+  gt_img_rows(
+    columns = logo,
+    height = 30
+  ) %>%
+  tab_header(
+    title = "Mountain West Running Backs",
+    subtitle = "Top 10 RBs by Rushing Yards"
+  ) %>%
+  cols_label(
+    logo = "",
+    player = "Player",
+    rushing_car = "Carries",
+    rushing_yds = "Rush Yds",
+    rushing_ypc = "YPC",
+    rushing_td = "Rush TDs",
+    receiving_rec = "Rec",
+    receiving_yds = "Rec Yds",
+    receiving_td = "Rec TDs"
+  ) %>%
+  data_color(rushing_ypc, palette = "rcartocolor::Tropic", domain = c(4, 8), reverse = T) %>% 
+  tab_options(data_row.padding = '0px')
+
