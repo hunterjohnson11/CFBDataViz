@@ -1,5 +1,5 @@
 ---
-title: "GitHub Pages Example"
+title: "CFBDataViz"
 author: "Hunter Johnson"
 date: "2025-06-05"
 output: html_document
@@ -9,4 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Hello, world!
+## MW Top 10 Player Rankings
+
+- QBs
+- RBs
+- WRs
