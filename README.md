@@ -1,2 +1,2 @@
-# MWGraphs
-Data Viz of Mountain West College Football Data
+# CFBDataViz
+Data Viz of College Football
