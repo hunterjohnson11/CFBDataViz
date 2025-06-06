@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r libraries}
+```{r libraries, message=FALSE, warning=FALSE}
 
 library(cfbfastR)
 library(gt)
@@ -20,7 +20,7 @@ library(magrittr)
 
 ```
 
-```{r f5 theme}
+```{r f5 theme, message=FALSE, warning=FALSE}
 
 gt_theme_f5 <- function(gt_object, ...) {
   
