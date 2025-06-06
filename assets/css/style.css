@@ -1,0 +1,26 @@
+
+/* style.css */
+
+/* Body styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Heading styles */
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+/* Links styling */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
