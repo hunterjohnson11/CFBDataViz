@@ -1,27 +1,11 @@
 ---
 title: "CFBDataViz"
-author: "Hunter Johnson"
-date: "2025-06-05"
-output:
-  distill::distill_article:
-    toc: true
-    toc_depth: 2
-    theme: "flatly"
-    highlight: "tango"
-    includes:
-      in_header: "includes/header.html"   # Include the custom header
-      before_body: "includes/footer.html"  # Include the custom footer
-    css: "assets/css/style.css"           # Link to the custom CSS
-    self_contained: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## MW Top 10 Player Rankings
+# Welcome!
 
--   QBs
--   [RBs](MWTop10/Top10RBs.html)
--   WRs
--   TEs
+I make data viz for college football. 

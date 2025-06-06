@@ -1,0 +1,10 @@
+Package: CFBDataViz
+Title: Data Viz for College Football
+Version: 2.2601.30
+Authors@R: 
+    person("Hunter", "Johnson", email = "hunterdanj@hotmail.com", role = c("aut", "cre"))
+Description: What's there to say? 
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+URL: https://hunterjohnson11.github.io/CFBDataViz/
