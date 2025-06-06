@@ -6,9 +6,9 @@ navbar:
     right: [github] # Add or remove components as desired
 
   components:
-    home: { text: "Home", href: index.html}
+    home: { text: "Home", href: index.html }
     articles: { text: "My Pages", contents: [ # This will be your dropdown menu
-      { text: "Top10RBs", href: articles/Top10RBs.html}
+      { text: "Top10RBs", href: articles/Top10RBs.html }
     ]}
     github: { icon: fa-github, href: https://github.com/hunterjohnson11/CFBDataViz/}
 
