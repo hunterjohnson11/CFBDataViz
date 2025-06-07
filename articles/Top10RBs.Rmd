@@ -17,6 +17,7 @@ library(gtExtras)
 library(data.table)
 library(tidyverse)
 library(magrittr)
+library(janitor)
 
 ```
 
@@ -123,11 +124,71 @@ rush %<>%
 
 ```
 
-```{r gt table}
+```{r}
 
-rush %>%
-  select(logo, player, rushing_car, rushing_yds, rushing_ypc, rushing_td, receiving_rec, receiving_yds, receiving_td) %>%
-  arrange(-rushing_yds) %>%
+
+rbs <- fread("~/Downloads/2025 MW RBs.csv") %>%
+  clean_names()
+
+rbs %>%
+  filter(!is.na(yards_per_attempt)) %>%
+  mutate(rank = row_number(),
+         yards = as.numeric(yards)) %>%
+  select(rank, everything()) %>%
+  view()
+
+#Try that again, but I think I need to remove the whitespace from yards first
+
+rbs <- fread("~/Downloads/2025 MW RBs.csv") %>%
+  clean_names() %>%
+  mutate(rank = row_number()) %>%
+  arrange(rank) %>%
+  mutate(rank = paste0(row_number(), ".")) %>%
+  select(rank, everything()) %>%
+  mutate(yards = as.numeric(str_remove_all(yards, "[,\\s]"))) %>%
+  filter(!is.na(yards)) %>%
+  mutate(school = ifelse(school == "San Jose State", "San José State", school)) %>%
+  left_join(info %>% select(school, logo), by = c("school" = "school"))
+
+
+
+
+
+# rush %<>%
+#   mutate(team = ifelse(team == "San José State", "San Jose State", team))
+
+
+
+
+
+# plays <- load_cfb_pbp(2024)
+# 
+# 
+# plays %>%
+#   filter(!is.na(rush_player_id)) %>%
+#   view()
+# 
+# 
+# plays <- cfbd_pbp_data(2024, epa_wpa = T)
+#   
+#   
+#   #select(rush_player_id, rusher_player_name) %>%
+#   group_by(rusher_player_name) %>%
+#   summarize(mean = mean(EPA, na.rm = TRUE)) %>%
+#   view()
+#   
+#   
+# plays <- cfbfastR::espn_cfb_pbp()  
+# 
+# 
+# cfbfastR::
+#   
+```
+
+```{r gt table new}
+
+rbs %>%
+  select(rank, logo, player, yards, yards_per_attempt, pff_rush_grade, missed_tackles_forced) %>%
   gt() %>%
   gt_theme_f5() %>%
   gt_img_rows(
@@ -136,21 +197,23 @@ rush %>%
   ) %>%
   tab_header(
     title = "Mountain West Running Backs",
-    subtitle = "Top 10 RBs by Rushing Yards"
+    subtitle = "Top 15"
   ) %>%
   cols_label(
     logo = "",
+    rank = "Rank",
     player = "Player",
-    rushing_car = "Carries",
-    rushing_yds = "Rush Yds",
-    rushing_ypc = "YPC",
-    rushing_td = "Rush TDs",
-    receiving_rec = "Rec",
-    receiving_yds = "Rec Yds",
-    receiving_td = "Rec TDs"
+    yards = "Yards",
+    yards_per_attempt = "YPA",
+    pff_rush_grade = "PFF Rush Grade",
+    missed_tackles_forced = "Missed Tackles Forced"
   ) %>%
-  data_color(rushing_ypc, palette = "rcartocolor::Tropic", domain = c(4, 8), reverse = T) %>% 
+  data_color(yards, palette = "rcartocolor::Tropic", domain = c(100, 1400), reverse = T) %>%
+  data_color(yards_per_attempt, palette = "rcartocolor::Tropic", domain = c(3.5, 8), reverse = T) %>%
+  data_color(pff_rush_grade, palette = "rcartocolor::Tropic", domain = c(60, 95), reverse = T) %>%
   tab_options(data_row.padding = '0px')
 
 ```
+
+
 
