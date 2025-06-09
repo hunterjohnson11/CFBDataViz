@@ -8,7 +8,7 @@ navbar:
   components:
     home: { text: "Home", href: index.html }
     articles: { text: "My Pages", contents: [ # This will be your dropdown menu
-      { text: "Top10RBs", href: articles/Top10RBs.html }
+      { text: "Top10RBs", href: articles/Top10RBs.rmd }
     ]}
     github: { icon: fa-github, href: https://github.com/hunterjohnson11/CFBDataViz/}
 
