@@ -19,6 +19,7 @@ library(tidyverse)
 library(magrittr)
 library(janitor)
 library(here)
+library(gtUtils)
 
 ```
 
@@ -145,30 +146,56 @@ rbs <- fread(here("data", "2025 MW RBs.csv")) %>%
 ```{r gt table new}
 
 rbs %>%
-  select(rank, logo, player, yards, yards_per_attempt, pff_rush_grade, missed_tackles_forced) %>%
+  select(rank, logo, player, pff_rush_grade, yards, yards_per_attempt,  missed_tackles_forced, notes) %>%
   gt() %>%
   gt_theme_f5() %>%
   gt_img_rows(
     columns = logo,
     height = 30
   ) %>%
-  tab_header(
-    title = "Mountain West Running Backs",
-    subtitle = "Top 15"
+  # tab_header(
+  #   title = "Top 15 Mountain West RBs",
+  #   subtitle = "Entering 2025 Season"
+  # ) %>%
+   tab_header(
+    title = "Top 15 Mountain West RBs Entering 2025",
+    subtitle = "Rankings by Nathan Carroll (@Nathan_26_)"
   ) %>%
+  tab_options(heading.align = "center") %>%
   cols_label(
     logo = "",
     rank = "Rank",
     player = "Player",
     yards = "Yards",
     yards_per_attempt = "YPA",
-    pff_rush_grade = "PFF Rush Grade",
-    missed_tackles_forced = "Missed Tackles Forced"
+    pff_rush_grade = "PFF Grade",
+    missed_tackles_forced = "MTF",
+    notes = "Notes"
   ) %>%
-  data_color(yards, palette = "rcartocolor::Tropic", domain = c(100, 1400), reverse = T) %>%
-  data_color(yards_per_attempt, palette = "rcartocolor::Tropic", domain = c(3.5, 8), reverse = T) %>%
+  #data_color(yards, palette = "rcartocolor::Tropic", domain = c(100, 1400), reverse = T) %>%
+  #data_color(yards_per_attempt, palette = "rcartocolor::Tropic", domain = c(3.5, 8), reverse = T) %>%
   data_color(pff_rush_grade, palette = "rcartocolor::Tropic", domain = c(60, 95), reverse = T) %>%
-  tab_options(data_row.padding = '0px')
+  #data_color(missed_tackles_forced, palette = "rcartocolor::Tropic", domain = c(5, 55), reverse = T) %>%
+  tab_options(data_row.padding = '0px') %>%
+  # tab_source_note(
+  #   source_note = "Data from PFF") %>%
+  tab_footnote(
+    footnote = "MTF is Missed Tackles Forced",
+    locations = cells_column_labels(columns = c(missed_tackles_forced))
+  ) %>%
+tab_style(
+  style = cell_text(size = px(10)),
+  locations = cells_body(columns = notes)
+) %>%
+tab_style(
+  style = cell_text(size = px(12)),
+  locations = cells_footnotes()
+) %>%
+  tab_source_note(
+    source_note = html("Table by @UnterHonson using <i>The F5</i> Theme, Data by PFF")
+  ) #%>%
+  #gt_save_crop(file = "RBTop10.png", whitespace = 20, bg = "floralwhite")
+
 
 ```
 
