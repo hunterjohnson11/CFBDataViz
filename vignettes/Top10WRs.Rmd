@@ -117,12 +117,6 @@ wr_epa <- plays %>%
   view()
 
 
-plays %>%
-  filter(receiver_player_name == "Latrell Caples") %>%
-  select(play_text) %>%
-  view()
-
-
 wr_epa23 <- plays23 %>%
   filter(!is.na(receiver_player_name)) %>%
   group_by(receiver_player_name) %>%
@@ -196,8 +190,10 @@ wrs %>%
   data_color(catches, palette = "rcartocolor::Tropic", domain = c(10, 65), reverse = T) %>%
   data_color(yards, palette = "rcartocolor::Tropic", domain = c(100, 750), reverse = T) %>%
   tab_options(data_row.padding = '0px') %>%
-  # tab_source_note(
-  #   source_note = "Data from PFF") %>%
+  # tab_footnote(
+  #   footnote = "Expected Points Added",
+  #   locations = cells_column_labels(columns = c(EPA))
+  # ) %>%
   tab_footnote(
     footnote = "Yards per Route Run",
     locations = cells_column_labels(columns = c(yds_rr))

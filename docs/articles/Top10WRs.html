@@ -178,7 +178,7 @@ Johnson</h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://cfbfastR.sportsdataverse.org/reference/cfbd_team_info.html" class="external-link">cfbd_team_info</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## New names:</span></span>
-<span><span class="co">## 2025-06-10 11:53:31.226635:Invalid arguments or no team data available!</span></span>
+<span><span class="co">## 2025-06-10 15:49:54.834875:Invalid arguments or no team data available!</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `id` -&gt; `id...1`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `id` -&gt; `id...14`</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -196,12 +196,6 @@ Johnson</h4>
 <span>            EPA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">EPA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>            EPA_play <span class="op">=</span> <span class="va">EPA</span><span class="op">/</span><span class="va">count</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co">#filter(count &gt; 100) %&gt;%</span></span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/view.html" class="external-link">view</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">plays</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">receiver_player_name</span> <span class="op">==</span> <span class="st">"Latrell Caples"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">play_text</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/view.html" class="external-link">view</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -272,8 +266,10 @@ Johnson</h4>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">catches</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">65</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">yards</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">750</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html" class="external-link">tab_options</a></span><span class="op">(</span>data_row.padding <span class="op">=</span> <span class="st">'0px'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="co"># tab_source_note(</span></span>
-<span>  <span class="co">#   source_note = "Data from PFF") %&gt;%</span></span>
+<span>  <span class="co"># tab_footnote(</span></span>
+<span>  <span class="co">#   footnote = "Expected Points Added",</span></span>
+<span>  <span class="co">#   locations = cells_column_labels(columns = c(EPA))</span></span>
+<span>  <span class="co"># ) %&gt;%</span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html" class="external-link">tab_footnote</a></span><span class="op">(</span></span>
 <span>    footnote <span class="op">=</span> <span class="st">"Yards per Route Run"</span>,</span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_column_labels.html" class="external-link">cells_column_labels</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">yds_rr</span><span class="op">)</span><span class="op">)</span></span>
@@ -803,18 +799,6 @@ Johnson</h4>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">4.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/167.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Keagan Johnson</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #DBA3CA; color: #000000;">60.7</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #D692C2; color: #000000;">21.4</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D284BB; color: #FFFFFF;">0.67</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #DDA9CD; color: #000000;">1.46</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #E4BFD8; color: #000000;">28</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #E9D1E1; color: #000000;">353</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at Kansas State</td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">5.</td>
 <td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" style="height:30px;"></td>
 <td headers="player" class="gt_row gt_left">Jaylen Sargent</td>
 <td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E0EAEA; color: #000000;">68.5</td>
@@ -826,7 +810,7 @@ Johnson</h4>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
-<td headers="rank" class="gt_row gt_right">6.</td>
+<td headers="rank" class="gt_row gt_right">5.</td>
 <td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/68.png" style="height:30px;"></td>
 <td headers="player" class="gt_row gt_left">Latrell Caples</td>
 <td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #CCE2E2; color: #000000;">69.6</td>
@@ -836,6 +820,18 @@ Johnson</h4>
 <td headers="catches" class="gt_row gt_right" style="background-color: #EDEFEF; color: #000000;">38</td>
 <td headers="yards" class="gt_row gt_right" style="background-color: #D1E4E4; color: #000000;">473</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
+</tr>
+<tr>
+<td headers="rank" class="gt_row gt_right">6.</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/167.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Keagan Johnson</td>
+<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #DBA3CA; color: #000000;">60.7</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #D692C2; color: #000000;">21.4</td>
+<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D284BB; color: #FFFFFF;">0.67</td>
+<td headers="yds_rr" class="gt_row gt_right" style="background-color: #DDA9CD; color: #000000;">1.46</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #E4BFD8; color: #000000;">28</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #E9D1E1; color: #000000;">353</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at Kansas State</td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">7.</td>
