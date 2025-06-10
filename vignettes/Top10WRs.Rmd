@@ -1,0 +1,219 @@
+---
+title: "Top 10 MW WRs"
+author: "Hunter Johnson"
+date: "2025-06-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, message=FALSE, warning=FALSE}
+
+library(cfbfastR)
+library(gt)
+library(gtExtras)
+library(data.table)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(here)
+library(gtUtils)
+
+```
+
+```{r f5 theme, message=FALSE, warning=FALSE}
+
+gt_theme_f5 <- function(gt_object, ...) {
+  
+  gt_object %>%
+    opt_table_font(
+      font = list(
+        google_font("Roboto"),
+        default_fonts()
+      ),
+      weight = 400
+    ) %>%
+    tab_style(
+      locations = cells_title("title"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        weight = 700
+      )
+    ) %>%
+    tab_style(
+      locations = cells_title("subtitle"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        color = "gray65",
+        weight = 400
+      )
+    ) %>%
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = "top", color = "black", weight = px(0)
+        ),
+        cell_text(
+          font = google_font("Roboto"),
+          #transform = "uppercase",
+          v_align = "bottom",
+          size = px(14),
+          weight = 'bold'
+        )
+      ),
+      locations = list(
+        gt::cells_column_labels(),
+        gt::cells_stubhead()
+      )
+    ) %>%
+    tab_options(
+      column_labels.background.color = "floralwhite",
+      data_row.padding = px(7.5),
+      heading.border.bottom.style = "none",
+      table.border.top.style = "none", # transparent
+      table.border.bottom.style = "none",
+      column_labels.font.weight = "bold", 
+      column_labels.border.top.style = "none",
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.bottom.color = "black",
+      row_group.border.top.style = "none",
+      row_group.border.top.color = "black",
+      row_group.border.bottom.width = px(1),
+      row_group.border.bottom.color = "floralwhite",
+      stub.border.color = "floralwhite",
+      stub.border.width = px(0),
+      source_notes.font.size = 12,
+      source_notes.border.lr.style = "none",
+      table.font.size = 16,
+      heading.align = "left",
+      table.background.color = "floralwhite",
+      table_body.hlines.color = 'gray90',
+      ...
+    )
+}
+
+```
+
+```{r data wrangling}
+
+info <- cfbd_team_info()
+
+plays <- cfbfastR::load_cfb_pbp(2024)
+
+plays23 <- cfbfastR::load_cfb_pbp(2023)
+
+
+
+
+wr_epa <- plays %>%
+  filter(!is.na(receiver_player_name)) %>%
+  group_by(receiver_player_name) %>%
+  summarize(count = n(),
+            EPA = sum(EPA, na.rm = TRUE),
+            EPA_play = EPA/count) %>%
+  #filter(count > 100) %>%
+  view()
+
+
+plays %>%
+  filter(receiver_player_name == "Latrell Caples") %>%
+  select(play_text) %>%
+  view()
+
+
+wr_epa23 <- plays23 %>%
+  filter(!is.na(receiver_player_name)) %>%
+  group_by(receiver_player_name) %>%
+  summarize(count = n(),
+            EPA = sum(EPA, na.rm = TRUE),
+            EPA_play = EPA/count) %>%
+  filter(receiver_player_name %in% c("JoJo Earle")) %>%
+  rename(player = receiver_player_name)
+
+
+wrs <- fread(here("data", "Top-15 WRs.csv")) %>%
+  clean_names() %>%
+  filter(!is.na(yards)) %>%
+  select(-v3, -v6) %>%
+  mutate(rank = row_number()) %>%
+  arrange(rank) %>%
+  mutate(rank = paste0(row_number(), ".")) %>%
+  select(rank, everything()) %>%
+  mutate(school = case_when(school == "Hawaii" ~ "Hawai'i",
+                            school == "San Jose State" ~ "San José State",
+                            TRUE ~ school)) %>%
+  left_join(info %>% select(school, logo), by = c("school" = "school")) %>% 
+  left_join(wr_epa %>% select(receiver_player_name, EPA, EPA_play, count), 
+            by = c("player" = "receiver_player_name")) %>%
+  rows_update(wr_epa23)
+  
+
+
+
+```
+
+```{r}
+
+wrs %>%
+  select(rank, logo, player, pff_receiving_grade, EPA, EPA_play, yds_rr, catches, yards, notes) %>%
+  gt() %>%
+  gt_theme_f5() %>%
+  gt_img_rows(
+    columns = logo,
+    height = 30
+  ) %>%
+  tab_header(
+    title = "Top 15 Mountain West WRs Entering 2025",
+    subtitle = "Rankings by Nathan Carroll (@Nathan_26_)"
+  ) %>%
+  tab_options(heading.align = "center") %>%
+  cols_label(
+    logo = "",
+    rank = "Rank",
+    player = "Player",
+    yards = "Yards",
+    yds_rr = "YPRR",
+    pff_receiving_grade = "PFF Grade",
+    catches = "Rec",
+    notes = "Notes",
+    EPA = md("Total<br>EPA"),
+    EPA_play = md("EPA/<br>Rec")
+  ) %>%
+  fmt_number(
+    columns = c(EPA),
+    decimals = 1
+  ) %>%
+  fmt_number(
+    columns = c(EPA_play),
+    decimals = 2
+  ) %>%
+  data_color(pff_receiving_grade, palette = "rcartocolor::Tropic", domain = c(55, 80), reverse = T) %>%
+  data_color(EPA_play, palette = "rcartocolor::Tropic", domain = c(.4, 2.56), reverse = T) %>%
+  data_color(EPA, palette = "rcartocolor::Tropic", domain = c(13, 62), reverse = T) %>%
+  data_color(yds_rr, palette = "rcartocolor::Tropic", domain = c(1.15, 2.4), reverse = T) %>%
+  data_color(catches, palette = "rcartocolor::Tropic", domain = c(10, 65), reverse = T) %>%
+  data_color(yards, palette = "rcartocolor::Tropic", domain = c(100, 750), reverse = T) %>%
+  tab_options(data_row.padding = '0px') %>%
+  # tab_source_note(
+  #   source_note = "Data from PFF") %>%
+  tab_footnote(
+    footnote = "Yards per Route Run",
+    locations = cells_column_labels(columns = c(yds_rr))
+  ) %>%
+  tab_style(
+    style = cell_text(size = px(10)),
+    locations = cells_body(columns = notes)
+  ) %>%
+  tab_style(
+    style = cell_text(size = px(12)),
+    locations = cells_footnotes()
+  ) %>%
+  tab_source_note(
+    source_note = html("Table by @UnterHonson using <i>The F5</i> Theme, Data by PFF")
+  ) #%>%
+#gt_save_crop(file = "WRTop10.png", whitespace = 20, bg = "floralwhite")
+```
+
+

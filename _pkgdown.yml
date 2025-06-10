@@ -14,6 +14,7 @@ articles:
   navbar: My Pages
   contents:
     - Top10RBs
+    - Top10WRs
 
 # Optional: Add bslib theme customization if you want to tweak colors/fonts from pkgdown's default
 # theme:
