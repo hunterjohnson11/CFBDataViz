@@ -1,0 +1,234 @@
+---
+title: "Top 10 MW TEs"
+author: "Hunter Johnson"
+date: "2025-06-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, message=FALSE, warning=FALSE}
+
+library(cfbfastR)
+library(gt)
+library(gtExtras)
+library(data.table)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(here)
+library(gtUtils)
+
+```
+
+```{r f5 theme, message=FALSE, warning=FALSE}
+
+gt_theme_f5 <- function(gt_object, ...) {
+  
+  gt_object %>%
+    opt_table_font(
+      font = list(
+        google_font("Roboto"),
+        default_fonts()
+      ),
+      weight = 400
+    ) %>%
+    tab_style(
+      locations = cells_title("title"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        weight = 700
+      )
+    ) %>%
+    tab_style(
+      locations = cells_title("subtitle"),
+      style = cell_text(
+        font = google_font("Roboto"),
+        color = "gray65",
+        weight = 400
+      )
+    ) %>%
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = "top", color = "black", weight = px(0)
+        ),
+        cell_text(
+          font = google_font("Roboto"),
+          #transform = "uppercase",
+          v_align = "bottom",
+          size = px(14),
+          weight = 'bold'
+        )
+      ),
+      locations = list(
+        gt::cells_column_labels(),
+        gt::cells_stubhead()
+      )
+    ) %>%
+    tab_options(
+      column_labels.background.color = "floralwhite",
+      data_row.padding = px(7.5),
+      heading.border.bottom.style = "none",
+      table.border.top.style = "none", # transparent
+      table.border.bottom.style = "none",
+      column_labels.font.weight = "bold", 
+      column_labels.border.top.style = "none",
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.bottom.color = "black",
+      row_group.border.top.style = "none",
+      row_group.border.top.color = "black",
+      row_group.border.bottom.width = px(1),
+      row_group.border.bottom.color = "floralwhite",
+      stub.border.color = "floralwhite",
+      stub.border.width = px(0),
+      source_notes.font.size = 12,
+      source_notes.border.lr.style = "none",
+      table.font.size = 16,
+      heading.align = "left",
+      table.background.color = "floralwhite",
+      table_body.hlines.color = 'gray90',
+      ...
+    )
+}
+
+```
+
+```{r data wrangling}
+
+info <- cfbd_team_info()
+
+plays <- cfbfastR::load_cfb_pbp(2024)
+
+plays23 <- cfbfastR::load_cfb_pbp(2023)
+
+plays22 <- cfbfastR::load_cfb_pbp(2022)
+
+
+
+
+te_epa <- plays %>%
+  filter(!is.na(receiver_player_name)) %>%
+  group_by(receiver_player_name) %>%
+  summarize(count = n(),
+            EPA = sum(EPA, na.rm = TRUE),
+            EPA_play = EPA/count) %>%
+  #filter(count > 100) %>%
+  view()
+
+
+te_epa23 <- plays23 %>%
+  filter(!is.na(receiver_player_name)) %>%
+  group_by(receiver_player_name) %>%
+  summarize(count = n(),
+            EPA = sum(EPA, na.rm = TRUE),
+            EPA_play = EPA/count) %>%
+  filter(receiver_player_name %in% c("Rocky Beers")) %>%
+  rename(player = receiver_player_name)
+
+
+te_epa22 <- plays22 %>%
+  filter(!is.na(receiver_player_name)) %>%
+  group_by(receiver_player_name) %>%
+  summarize(count = n(),
+            EPA = sum(EPA, na.rm = TRUE),
+            EPA_play = EPA/count) %>%
+  filter(receiver_player_name %in% c("Var'Keyes Gumms")) %>%
+  rename(player = receiver_player_name)
+
+
+tes <- fread(here("data", "2025 TE Rankings.csv")) %>%
+  clean_names() %>%
+  rename("school" = "team") %>%
+  select(-v3) %>%
+  mutate(rank = row_number()) %>%
+  arrange(rank) %>%
+  mutate(rank = paste0(row_number(), ".")) %>%
+  select(rank, everything()) %>%
+  mutate(team = case_when(school == "Hawaii" ~ "Hawai'i",
+                            school == "San Jose State" ~ "San José State",
+                            TRUE ~ school)) %>%
+  left_join(info %>% select(school, logo), by = c("team" = "school")) %>% 
+  left_join(te_epa %>% select(receiver_player_name, EPA, EPA_play, count), 
+            by = c("player" = "receiver_player_name")) %>%
+  rows_update(te_epa23) %>%
+  rows_update(te_epa22) %>%
+  mutate(EPA_target = EPA/targets) %>%
+  slice(1:10) 
+  
+
+
+
+```
+
+```{r}
+
+
+tes %>%
+  select(rank, logo, player, pff_receiving, pff_run_blocking_grade, EPA, EPA_target, catches, yards, notes = v9) %>%
+  gt()%>%
+  gt_theme_f5() %>%
+  gt_img_rows(
+    columns = logo,
+    height = 30
+  ) %>%
+  tab_header(
+    title = "Top 10 Mountain West TEs Entering 2025",
+    subtitle = "Rankings by Nathan Carroll (@Nathan_26_)"
+  ) %>%
+  tab_options(heading.align = "center") %>%
+  cols_label(
+    logo = "",
+    rank = "Rank",
+    player = "Player",
+    yards = "Yards",
+    pff_receiving = md("Receiving <br> Grade"),
+    pff_run_blocking_grade = md("Blocking<br> Grade"),
+    catches = "Rec",
+    notes = "Notes",
+    EPA = md("Total<br>EPA"),
+    EPA_target = md("EPA/<br>Target")
+  ) %>%
+  text_transform(
+    locations = cells_body(
+      columns = notes, # Target the 'notes' column
+      rows = 3         # Target the 3rd row specifically
+    ),
+    fn = function(x) {
+      md("2022 at North Texas<br>4 catches at Ark in 23/24")
+    }
+) %>%
+  fmt_number(
+    columns = c(EPA),
+    decimals = 1
+  ) %>%
+  fmt_number(
+    columns = c(EPA_target),
+    decimals = 2
+  ) %>%
+  # tab_spanner(
+  #   label = "PFF Grades",
+  #   columns = c(pff_receiving, pff_run_blocking_grade)
+  # ) %>%
+  data_color(pff_receiving, palette = "rcartocolor::Tropic", domain = c(54, 85), reverse = T) %>%
+  data_color(pff_run_blocking_grade, palette = "rcartocolor::Tropic", domain = c(40, 85), reverse = T) %>%
+  data_color(EPA_target, palette = "rcartocolor::Tropic", domain = c(-.5, 1), reverse = T) %>%
+  data_color(EPA, palette = "rcartocolor::Tropic", domain = c(-3, 55), reverse = T) %>%
+  data_color(catches, palette = "rcartocolor::Tropic", domain = c(5, 50), reverse = T) %>%
+  data_color(yards, palette = "rcartocolor::Tropic", domain = c(20, 650), reverse = T) %>%
+  tab_options(data_row.padding = '0px')  %>%
+  tab_style(
+    style = cell_text(size = px(10)),
+    locations = cells_body(columns = notes)
+  ) %>%
+  tab_style(
+    style = cell_text(size = px(12)),
+    locations = cells_footnotes()
+  ) %>%
+  tab_source_note(
+    source_note = html("Table by @UnterHonson using <i>The F5</i> Theme, Data by PFF and CFBD")) #%>%
+#gt_save_crop(file = "TETop10.png", whitespace = 20, bg = "floralwhite")
+
+```

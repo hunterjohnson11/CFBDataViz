@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top 10 MW WRs • CFBDataViz</title>
+<title>Top 10 MW TEs • CFBDataViz</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Top 10 MW WRs">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Top 10 MW TEs">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -86,14 +86,14 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Top 10 MW WRs</h1>
+      <h1 data-toc-skip>Top 10 MW TEs</h1>
                         <h4 data-toc-skip class="author">Hunter
 Johnson</h4>
             
-            <h4 data-toc-skip class="date">2025-06-10</h4>
+            <h4 data-toc-skip class="date">2025-06-13</h4>
       
 
-      <div class="hidden name"><code>Top10WRs.Rmd</code></div>
+      <div class="hidden name"><code>Top10TEs.Rmd</code></div>
 
     </div>
 
@@ -181,7 +181,7 @@ Johnson</h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://cfbfastR.sportsdataverse.org/reference/cfbd_team_info.html" class="external-link">cfbd_team_info</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## New names:</span></span>
-<span><span class="co">## 2025-06-13 16:43:55.896316:Invalid arguments or no team data available!</span></span>
+<span><span class="co">## 2025-06-13 16:43:30.672591:Invalid arguments or no team data available!</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `id` -&gt; `id...1`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `id` -&gt; `id...14`</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -189,10 +189,12 @@ Johnson</h4>
 <span></span>
 <span><span class="va">plays23</span> <span class="op">&lt;-</span> <span class="fu">cfbfastR</span><span class="fu">::</span><span class="fu"><a href="https://cfbfastR.sportsdataverse.org/reference/load_cfb_pbp.html" class="external-link">load_cfb_pbp</a></span><span class="op">(</span><span class="fl">2023</span><span class="op">)</span></span>
 <span></span>
+<span><span class="va">plays22</span> <span class="op">&lt;-</span> <span class="fu">cfbfastR</span><span class="fu">::</span><span class="fu"><a href="https://cfbfastR.sportsdataverse.org/reference/load_cfb_pbp.html" class="external-link">load_cfb_pbp</a></span><span class="op">(</span><span class="fl">2022</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span></span>
-<span><span class="va">wr_epa</span> <span class="op">&lt;-</span> <span class="va">plays</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span></span>
+<span><span class="va">te_epa</span> <span class="op">&lt;-</span> <span class="va">plays</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -202,43 +204,57 @@ Johnson</h4>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/view.html" class="external-link">view</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="va">wr_epa23</span> <span class="op">&lt;-</span> <span class="va">plays23</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">te_epa23</span> <span class="op">&lt;-</span> <span class="va">plays23</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>            EPA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">EPA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>            EPA_play <span class="op">=</span> <span class="va">EPA</span><span class="op">/</span><span class="va">count</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">receiver_player_name</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"JoJo Earle"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">receiver_player_name</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Rocky Beers"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>player <span class="op">=</span> <span class="va">receiver_player_name</span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="va">wrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"Top-15 WRs.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span><span class="va">te_epa22</span> <span class="op">&lt;-</span> <span class="va">plays22</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">receiver_player_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>            EPA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">EPA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>            EPA_play <span class="op">=</span> <span class="va">EPA</span><span class="op">/</span><span class="va">count</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">receiver_player_name</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Var'Keyes Gumms"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>player <span class="op">=</span> <span class="va">receiver_player_name</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">tes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"2025 TE Rankings.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html" class="external-link">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">yards</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">v3</span>, <span class="op">-</span><span class="va">v6</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="st">"school"</span> <span class="op">=</span> <span class="st">"team"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">v3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>rank <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">rank</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>rank <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"."</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rank</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>school <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span><span class="va">school</span> <span class="op">==</span> <span class="st">"Hawaii"</span> <span class="op">~</span> <span class="st">"Hawai'i"</span>,</span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>team <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span><span class="va">school</span> <span class="op">==</span> <span class="st">"Hawaii"</span> <span class="op">~</span> <span class="st">"Hawai'i"</span>,</span>
 <span>                            <span class="va">school</span> <span class="op">==</span> <span class="st">"San Jose State"</span> <span class="op">~</span> <span class="st">"San José State"</span>,</span>
 <span>                            <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">school</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">school</span>, <span class="va">logo</span><span class="op">)</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"school"</span> <span class="op">=</span> <span class="st">"school"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">wr_epa</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">receiver_player_name</span>, <span class="va">EPA</span>, <span class="va">EPA_play</span>, <span class="va">count</span><span class="op">)</span>, </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">school</span>, <span class="va">logo</span><span class="op">)</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"team"</span> <span class="op">=</span> <span class="st">"school"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">te_epa</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">receiver_player_name</span>, <span class="va">EPA</span>, <span class="va">EPA_play</span>, <span class="va">count</span><span class="op">)</span>, </span>
 <span>            by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"player"</span> <span class="op">=</span> <span class="st">"receiver_player_name"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rows.html" class="external-link">rows_update</a></span><span class="op">(</span><span class="va">wr_epa23</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Matching, by = "player"</span></span></code></pre>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rows.html" class="external-link">rows_update</a></span><span class="op">(</span><span class="va">te_epa23</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rows.html" class="external-link">rows_update</a></span><span class="op">(</span><span class="va">te_epa22</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>EPA_target <span class="op">=</span> <span class="va">EPA</span><span class="op">/</span><span class="va">targets</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> </span></code></pre></div>
+<pre><code><span><span class="co">## Matching, by = "player"</span></span>
+<span><span class="co">## Matching, by = "player"</span></span></code></pre>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">wrs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rank</span>, <span class="va">logo</span>, <span class="va">player</span>, <span class="va">pff_receiving_grade</span>, <span class="va">EPA</span>, <span class="va">EPA_play</span>, <span class="va">yds_rr</span>, <span class="va">catches</span>, <span class="va">yards</span>, <span class="va">notes</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">tes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rank</span>, <span class="va">logo</span>, <span class="va">player</span>, <span class="va">pff_receiving</span>, <span class="va">pff_run_blocking_grade</span>, <span class="va">EPA</span>, <span class="va">EPA_target</span>, <span class="va">catches</span>, <span class="va">yards</span>, notes <span class="op">=</span> <span class="va">v9</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">gt_theme_f5</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_img_rows.html" class="external-link">gt_img_rows</a></span><span class="op">(</span></span>
 <span>    columns <span class="op">=</span> <span class="va">logo</span>,</span>
 <span>    height <span class="op">=</span> <span class="fl">30</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html" class="external-link">tab_header</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Top 15 Mountain West WRs Entering 2025"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Top 10 Mountain West TEs Entering 2025"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Rankings by Nathan Carroll (@Nathan_26_)"</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html" class="external-link">tab_options</a></span><span class="op">(</span>heading.align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -247,36 +263,41 @@ Johnson</h4>
 <span>    rank <span class="op">=</span> <span class="st">"Rank"</span>,</span>
 <span>    player <span class="op">=</span> <span class="st">"Player"</span>,</span>
 <span>    yards <span class="op">=</span> <span class="st">"Yards"</span>,</span>
-<span>    yds_rr <span class="op">=</span> <span class="st">"YPRR"</span>,</span>
-<span>    pff_receiving_grade <span class="op">=</span> <span class="st">"PFF Grade"</span>,</span>
+<span>    pff_receiving <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"Receiving &lt;br&gt; Grade"</span><span class="op">)</span>,</span>
+<span>    pff_run_blocking_grade <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"Blocking&lt;br&gt; Grade"</span><span class="op">)</span>,</span>
 <span>    catches <span class="op">=</span> <span class="st">"Rec"</span>,</span>
 <span>    notes <span class="op">=</span> <span class="st">"Notes"</span>,</span>
 <span>    EPA <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"Total&lt;br&gt;EPA"</span><span class="op">)</span>,</span>
-<span>    EPA_play <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"EPA/&lt;br&gt;Rec"</span><span class="op">)</span></span>
+<span>    EPA_target <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"EPA/&lt;br&gt;Target"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/text_transform.html" class="external-link">text_transform</a></span><span class="op">(</span></span>
+<span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span></span>
+<span>      columns <span class="op">=</span> <span class="va">notes</span>, <span class="co"># Target the 'notes' column</span></span>
+<span>      rows <span class="op">=</span> <span class="fl">3</span>         <span class="co"># Target the 3rd row specifically</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"2022 at North Texas&lt;br&gt;4 catches at Ark in 23/24"</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html" class="external-link">fmt_number</a></span><span class="op">(</span></span>
 <span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">EPA</span><span class="op">)</span>,</span>
 <span>    decimals <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html" class="external-link">fmt_number</a></span><span class="op">(</span></span>
-<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">EPA_play</span><span class="op">)</span>,</span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">EPA_target</span><span class="op">)</span>,</span>
 <span>    decimals <span class="op">=</span> <span class="fl">2</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">pff_receiving_grade</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">80</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">EPA_play</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.4</span>, <span class="fl">2.56</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">EPA</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">13</span>, <span class="fl">62</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">yds_rr</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.15</span>, <span class="fl">2.4</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">catches</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">65</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">yards</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">750</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html" class="external-link">tab_options</a></span><span class="op">(</span>data_row.padding <span class="op">=</span> <span class="st">'0px'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="co"># tab_footnote(</span></span>
-<span>  <span class="co">#   footnote = "Expected Points Added",</span></span>
-<span>  <span class="co">#   locations = cells_column_labels(columns = c(EPA))</span></span>
+<span>  <span class="co"># tab_spanner(</span></span>
+<span>  <span class="co">#   label = "PFF Grades",</span></span>
+<span>  <span class="co">#   columns = c(pff_receiving, pff_run_blocking_grade)</span></span>
 <span>  <span class="co"># ) %&gt;%</span></span>
-<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html" class="external-link">tab_footnote</a></span><span class="op">(</span></span>
-<span>    footnote <span class="op">=</span> <span class="st">"Yards per Route Run"</span>,</span>
-<span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_column_labels.html" class="external-link">cells_column_labels</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">yds_rr</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">pff_receiving</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">54</span>, <span class="fl">85</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">pff_run_blocking_grade</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">85</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">EPA_target</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.5</span>, <span class="fl">1</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">EPA</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">55</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">catches</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">50</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/data_color.html" class="external-link">data_color</a></span><span class="op">(</span><span class="va">yards</span>, palette <span class="op">=</span> <span class="st">"rcartocolor::Tropic"</span>, domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">650</span><span class="op">)</span>, reverse <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html" class="external-link">tab_options</a></span><span class="op">(</span>data_row.padding <span class="op">=</span> <span class="st">'0px'</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html" class="external-link">tab_style</a></span><span class="op">(</span></span>
 <span>    style <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cell_text.html" class="external-link">cell_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/px.html" class="external-link">px</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">notes</span><span class="op">)</span></span>
@@ -286,8 +307,7 @@ Johnson</h4>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_footnotes.html" class="external-link">cells_footnotes</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_source_note.html" class="external-link">tab_source_note</a></span><span class="op">(</span></span>
-<span>    source_note <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/html.html" class="external-link">html</a></span><span class="op">(</span><span class="st">"Table by @UnterHonson using &lt;i&gt;The F5&lt;/i&gt; Theme, Data by PFF"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="co">#%&gt;%</span></span></code></pre></div>
+<span>    source_note <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/html.html" class="external-link">html</a></span><span class="op">(</span><span class="st">"Table by @UnterHonson using &lt;i&gt;The F5&lt;/i&gt; Theme, Data by PFF and CFBD"</span><span class="op">)</span><span class="op">)</span> <span class="co">#%&gt;%</span></span></code></pre></div>
 <div id="mwlefoodfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -744,7 +764,7 @@ Johnson</h4>
 <table class="table gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading">
-<td colspan="10" class="gt_heading gt_title gt_font_normal" style="font-family: Roboto; font-weight: 700;">Top 15 Mountain West WRs Entering 2025</td>
+<td colspan="10" class="gt_heading gt_title gt_font_normal" style="font-family: Roboto; font-weight: 700;">Top 10 Mountain West TEs Entering 2025</td>
     </tr>
 <tr class="gt_heading">
 <td colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="color: #A6A6A6; font-family: Roboto; font-weight: 400;">Rankings by Nathan Carroll (@Nathan_26_)</td>
@@ -753,11 +773,10 @@ Johnson</h4>
 <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="rank">Rank</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="logo"></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="player">Player</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="pff_receiving_grade">PFF Grade</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="pff_receiving"><span class="gt_from_md">Receiving <br> Grade</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="pff_run_blocking_grade"><span class="gt_from_md">Blocking<br> Grade</span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="EPA"><span class="gt_from_md">Total<br>EPA</span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="EPA_play"><span class="gt_from_md">EPA/<br>Rec</span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="yds_rr">YPRR<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
-</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="EPA_target"><span class="gt_from_md">EPA/<br>Target</span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="catches">Rec</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="yards">Yards</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Roboto; font-size: 14px; vertical-align: bottom; font-weight: bold;" scope="col" id="notes">Notes</th>
@@ -767,195 +786,131 @@ Johnson</h4>
 <tr>
 <td headers="rank" class="gt_row gt_right">1.</td>
 <td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Chris Durr Jr.</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #3AB2B4; color: #FFFFFF;">76.6</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #EDE0E8; color: #000000;">34.6</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #E4C0D9; color: #000000;">1.12</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #0D9EA1; color: #FFFFFF;">2.38</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #E8CFE0; color: #000000;">31</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #E8CFE0; color: #000000;">348</td>
+<td headers="player" class="gt_row gt_left">John Michael Gyllenborg</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #039C9F; color: #FFFFFF;">84.9</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #DDA9CD; color: #000000;">51.2</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #84C8C9; color: #000000;">39.6</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #31ADAF; color: #FFFFFF;">0.84</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #CFE3E3; color: #000000;">31</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #A9D4D5; color: #000000;">437</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">2.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/36.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Louis Brown IV</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #D3E5E5; color: #000000;">69.2</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #92CCCD; color: #000000;">47.7</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #E2B9D5; color: #000000;">1.06</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #B3D8D9; color: #000000;">1.95</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #E5ECEC; color: #000000;">39</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #56BBBD; color: #000000;">625</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at San Diego State</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/68.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Matt Lauter</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #A9D4D5; color: #000000;">74.5</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #C963AD; color: #FFFFFF;">40.8</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #21A4A7; color: #FFFFFF;">51.8</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #3AB2B4; color: #FFFFFF;">0.80</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #25A6A9; color: #FFFFFF;">47</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #22A5A7; color: #FFFFFF;">613</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">3.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/62.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Nick Cenacle</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #F0EEEF; color: #000000;">67.2</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #60BEBF; color: #000000;">51.9</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D898C4; color: #000000;">0.81</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #E7CBDE; color: #000000;">1.61</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #19A1A4; color: #FFFFFF;">63</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #1BA2A5; color: #FFFFFF;">723</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Var'Keyes Gumms</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #7FC6C8; color: #000000;">77.0</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #E1B6D4; color: #000000;">53.3</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #F1F0F1; color: #000000;">25.8</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #AED6D6; color: #000000;">0.48</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #B1D7D8; color: #000000;">34</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #98CECF; color: #000000;">458</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">2022 at North Texas<br>4 catches at Ark in 23/24</td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">4.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Jaylen Sargent</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E0EAEA; color: #000000;">68.5</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #C4DFDF; color: #000000;">42.5</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #A5D2D3; color: #000000;">1.85</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #17A0A3; color: #FFFFFF;">2.36</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #DCA5CB; color: #000000;">23</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #CCE2E2; color: #000000;">480</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/328.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Broc Lane</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #E6C6DC; color: #000000;">64.9</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #E4C0D8; color: #000000;">54.8</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #DEACCF; color: #000000;">12.2</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #ABD5D6; color: #000000;">0.49</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #E2BBD6; color: #000000;">19</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #E0B2D1; color: #000000;">197</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">Played 6 games</td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">5.</td>
 <td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/68.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Latrell Caples</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #CCE2E2; color: #000000;">69.6</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #7FC6C8; color: #000000;">49.4</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #EBD9E5; color: #000000;">1.30</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #E7CBDE; color: #000000;">1.61</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #EDEFEF; color: #000000;">38</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #D1E4E4; color: #000000;">473</td>
+<td headers="player" class="gt_row gt_left">Matt Wagner</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #E2EBEB; color: #000000;">70.6</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #DFAFD0; color: #000000;">52.1</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #D17EB9; color: #FFFFFF;">3.0</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #EFEAEE; color: #000000;">0.22</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #D180BA; color: #FFFFFF;">10</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #D489BD; color: #FFFFFF;">108</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">6.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/167.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Keagan Johnson</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #DBA3CA; color: #000000;">60.7</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #D692C2; color: #000000;">21.4</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D284BB; color: #FFFFFF;">0.67</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #DDA9CD; color: #000000;">1.46</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #E4BFD8; color: #000000;">28</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #E9D1E1; color: #000000;">353</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at Kansas State</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/278.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Richie Anderson</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #D387BC; color: #FFFFFF;">58.1</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #E0B4D2; color: #000000;">52.9</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #D58EBF; color: #000000;">6.0</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #DEE9E9; color: #000000;">0.32</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #DFAECF; color: #000000;">17</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #D898C4; color: #000000;">140</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">7.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/62.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Pofele Ashlock</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #D898C5; color: #000000;">59.8</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #0F9EA1; color: #FFFFFF;">61.1</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #E0B1D1; color: #000000;">1.00</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #E2B9D5; color: #000000;">1.53</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #27A7AA; color: #FFFFFF;">61</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #5ABCBE; color: #000000;">622</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/23.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Jackson Canaan</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #CB6AB0; color: #FFFFFF;">55.2</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #D17EB9; color: #FFFFFF;">44.7</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #EEE4EA; color: #000000;">23.4</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #A8D3D4; color: #000000;">0.50</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #ECEFEF; color: #000000;">28</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #EFE7EC; color: #000000;">314</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">8.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/21.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Jordan Napier</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #CAE1E2; color: #000000;">69.7</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #DBA2CA; color: #000000;">24.1</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #CB6BB1; color: #FFFFFF;">0.49</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #43B7B9; color: #000000;">2.19</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #C5DFE0; color: #000000;">43</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #E3EBEB; color: #000000;">446</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/278.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Jake Tarwater</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #C75DAB; color: #FFFFFF;">54.0</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #1CA2A5; color: #FFFFFF;">83.1</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #C861AD; color: #FFFFFF;">−2.3</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #CA66AF; color: #FFFFFF;">−0.46</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #C75DAB; color: #FFFFFF;">5</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #C75DAB; color: #FFFFFF;">20</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">9.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Marcus Bellon</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E7EDED; color: #000000;">68.1</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #6BC1C2; color: #000000;">51.1</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #ECDFE8; color: #000000;">1.34</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #E6C9DD; color: #000000;">1.60</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #E5ECEC; color: #000000;">39</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #AED6D6; color: #000000;">524</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/36.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Rocky Beers</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #E7EDED; color: #000000;">70.2</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #D282BB; color: #FFFFFF;">45.3</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #DFADCF; color: #000000;">12.3</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #92CCCD; color: #000000;">0.56</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #E1B4D3; color: #000000;">18</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #DCA4CA; color: #000000;">166</td>
+<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">2023 at FIU</td>
 </tr>
 <tr>
 <td headers="rank" class="gt_row gt_right">10.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/62.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Dekel Crowdus</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E7CCDF; color: #000000;">64.3</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #DAE8E8; color: #000000;">40.1</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #139FA2; color: #FFFFFF;">2.51</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #7AC5C6; color: #000000;">2.09</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #D180B9; color: #FFFFFF;">16</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #EEE7EC; color: #000000;">402</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">11.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/36.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Jordan Ross</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E8EDED; color: #000000;">68.0</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #D68FC0; color: #000000;">20.9</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #E8D0E0; color: #000000;">1.23</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #6BC1C2; color: #000000;">2.12</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #D07AB7; color: #FFFFFF;">15</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #D795C3; color: #000000;">218</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">12.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">JoJo Earle</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E9D2E1; color: #000000;">64.8</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #CD71B3; color: #FFFFFF;">16.0</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D58DBF; color: #000000;">0.73</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #F1F0F0; color: #000000;">1.77</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #D180B9; color: #FFFFFF;">16</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #DA9FC8; color: #000000;">239</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">In 2023 at TCU</td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">13.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/23.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Danny Scudero</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #129FA2; color: #FFFFFF;">79.4</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #D8E7E7; color: #000000;">40.3</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #DA9EC7; color: #000000;">0.86</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #A0D1D2; color: #000000;">2.00</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #5CBDBE; color: #000000;">54</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #32ADAF; color: #FFFFFF;">680</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at Sacramento State</td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">14.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Jordan Brown</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #ECDCE7; color: #000000;">65.7</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #C962AD; color: #FFFFFF;">13.8</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #D58CBF; color: #000000;">0.72</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #C962AD; color: #FFFFFF;">1.17</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #CB69B0; color: #FFFFFF;">12</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #CD71B3; color: #FFFFFF;">141</td>
-<td headers="notes" class="gt_row gt_left" style="font-size: 10px;">at Texas Tech</td>
-</tr>
-<tr>
-<td headers="rank" class="gt_row gt_right">15.</td>
-<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/36.png" style="height:30px;"></td>
-<td headers="player" class="gt_row gt_left">Armani Winfield</td>
-<td headers="pff_receiving_grade" class="gt_row gt_right" style="background-color: #E8D0E0; color: #000000;">64.6</td>
-<td headers="EPA" class="gt_row gt_right" style="background-color: #D07CB8; color: #FFFFFF;">17.7</td>
-<td headers="EPA_play" class="gt_row gt_right" style="background-color: #CA67AF; color: #FFFFFF;">0.47</td>
-<td headers="yds_rr" class="gt_row gt_right" style="background-color: #D48ABE; color: #FFFFFF;">1.33</td>
-<td headers="catches" class="gt_row gt_right" style="background-color: #EDEFEF; color: #000000;">38</td>
-<td headers="yards" class="gt_row gt_right" style="background-color: #E7CCDE; color: #000000;">341</td>
+<td headers="logo" class="gt_row gt_left"><img src="http://a.espncdn.com/i/teamlogos/ncaa/500/328.png" style="height:30px;"></td>
+<td headers="player" class="gt_row gt_left">Josh Sterzer</td>
+<td headers="pff_receiving" class="gt_row gt_right" style="background-color: #C963AE; color: #FFFFFF;">54.6</td>
+<td headers="pff_run_blocking_grade" class="gt_row gt_right" style="background-color: #E8CEDF; color: #000000;">57.0</td>
+<td headers="EPA" class="gt_row gt_right" style="background-color: #E8CEE0; color: #000000;">19.0</td>
+<td headers="EPA_target" class="gt_row gt_right" style="background-color: #40B6B8; color: #000000;">0.76</td>
+<td headers="catches" class="gt_row gt_right" style="background-color: #E4C1D9; color: #000000;">20</td>
+<td headers="yards" class="gt_row gt_right" style="background-color: #E0B3D2; color: #000000;">199</td>
 <td headers="notes" class="gt_row gt_left" style="font-size: 10px;"></td>
 </tr>
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
-<td class="gt_sourcenote" colspan="10">Table by @UnterHonson using <i>The F5</i> Theme, Data by PFF</td>
-    </tr></tfoot>
-<tfoot class="gt_footnotes"><tr>
-<td class="gt_footnote" style="font-size: 12px;" colspan="10">
-<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Yards per Route Run</td>
+<td class="gt_sourcenote" colspan="10">Table by @UnterHonson using <i>The F5</i> Theme, Data by PFF and CFBD</td>
     </tr></tfoot>
 </table>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#gt_save_crop(file = "WRTop10.png", whitespace = 20, bg = "floralwhite")</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#gt_save_crop(file = "TETop10.png", whitespace = 20, bg = "floralwhite")</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
