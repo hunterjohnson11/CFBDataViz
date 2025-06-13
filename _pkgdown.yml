@@ -1,16 +1,20 @@
-url: https://hunterjohnson11.github.io/CFBDataViz/ # **YOUR GITHUB PAGES URL**
+url: https://hunterjohnson11.github.io/CFBDataViz/
 
 navbar:
   structure:
     left: [home, articles, reference, news]
-    right: [github] # Add or remove components as desired
+    right: [github]
 
   components:
     home: { text: "Home", href: index.html }
-    articles: { text: "My Pages", contents: [ # This will be your dropdown menu
-      { text: "Top10RBs", href: articles/Top10RBs.html }
-    ]}
-    github: { icon: fa-github, href: https://github.com/hunterjohnson11/CFBDataViz/}
+    github: { icon: fa-github, href: https://github.com/hunterjohnson11/CFBDataViz/ }
+
+articles:
+- title: My Pages
+  navbar: My Pages
+  contents:
+    - Top10RBs
+    - Top10WRs
 
 # Optional: Add bslib theme customization if you want to tweak colors/fonts from pkgdown's default
 # theme:
