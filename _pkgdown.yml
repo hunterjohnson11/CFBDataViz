@@ -15,6 +15,7 @@ articles:
   contents:
     - Top10RBs
     - Top10WRs
+    - Top10TEs
 
 # Optional: Add bslib theme customization if you want to tweak colors/fonts from pkgdown's default
 # theme:
